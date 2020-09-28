@@ -1,5 +1,6 @@
 ﻿using APITest.DataAccess;
 using APITest.Models;
+using APITest.Repository;
 using APITest.ViewModel;
 using log4net;
 using Microsoft.Ajax.Utilities;
@@ -14,13 +15,20 @@ namespace APITest.Controllers
 {
     public class LoginController : ApiController
     {
-        //private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly GeneralRepository _general;
+
+        public LoginController(GeneralRepository general)
+        {
+            _general = general;
+        }
 
 
         [HttpPost]
         [Route("api/Login")]
         public HttpResponseMessage PostLogin(UserLogin user)
         {
+            //log.
             bool login_status = false;
             try
             {
@@ -47,36 +55,19 @@ namespace APITest.Controllers
             bool registration_status = false;
             if (user != new User())
             {
+                try
+                {
+                    registration_status = _general.AddUser(user);
+                }
+                catch (Exception)
+                {
+
+                    //throw;
+                }
                 registration_status = true;
             }
             return Request.CreateResponse(HttpStatusCode.OK, registration_status, Configuration.Formatters.JsonFormatter);
         }
 
-        //// GET: api/Login
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET: api/Login/5
-        //public string Get(int id)
-        //{
-        //    return "value:" + id;
-        //}
-
-        //// POST: api/Login
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT: api/Login/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE: api/Login/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

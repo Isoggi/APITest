@@ -178,6 +178,7 @@
     <Compile Include="Models\SP_ModusScore.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CryptoRepository.cs" />
     <Compile Include="Repository\GeneralRepository.cs" />
     <Compile Include="ViewModel\UserLogin.cs" />
   </ItemGroup>
