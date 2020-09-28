@@ -219,6 +219,14 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLScripts\CREATE DATABASE DBTest.sql" />
+    <Content Include="SQLScripts\CREATE PROCEDURE usp_AverageScore.sql" />
+    <Content Include="SQLScripts\CREATE PROCEDURE usp_AVGMODESCORE.sql" />
+    <Content Include="SQLScripts\CREATE PROCEDURE usp_LoginProcess.sql" />
+    <Content Include="SQLScripts\CREATE PROCEDURE usp_ModeScore.sql" />
+    <Content Include="SQLScripts\CREATE PROCEDURE usp_RegisterProcess.sql" />
+    <Content Include="SQLScripts\CREATE TABLE CLASS_SCORE.sql" />
+    <Content Include="SQLScripts\CREATE TABLE USER.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
